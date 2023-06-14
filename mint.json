@@ -36,12 +36,12 @@
     {
       "name": "Audience API",
       "icon": "users",
-      "url": "audience"
+      "url": "/v1/audience/get-started"
     },
     {
       "name": "Emails API",
       "icon": "envelope",
-      "url": "emails/get-started"
+      "url": "/v1/emails/get-started"
     },
     {
       "name": "Twitter",
