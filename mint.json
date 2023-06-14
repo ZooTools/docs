@@ -41,12 +41,17 @@
     {
       "name": "Emails API",
       "icon": "emails",
-      "url": "emails"
+      "url": "emails/get-started"
     },
     {
-      "name": "API Reference",
+      "name": "Twitter",
+      "icon": "twitter",
+      "url": "https://twitter.com/zootoolshq"
+    },
+    {
+      "name": "Support",
       "icon": "rectangle-terminal",
-      "url": "https://reference.flatfile.com/docs/api/"
+      "url": "mailto:dev+support@zootools.co"
     }
   ],
   "navigation": [
