@@ -9,29 +9,37 @@ icon: "user-plus"
 It fails if the member was already added (email or cryptoAddress) — check the user before adding.
 
 <CodeGroup>
+
 ```javascript JavaScript
-const apiToken = "your_api_token";
-const endpoint = "https://api.zootools.co/v1/audience/contacts";
+import axios from 'axios';
 
-const response = await fetch(endpoint, {
-method: "POST",
-body: {
-firstName: "Jorge",
-lastName: "Ferreiro",
-email: "jorge@zootools.co",
-},
-headers: {
-Authorization: `Bearer ${apiToken}`,
-},
-});
+const apiToken = 'your_api_token';
+const endpoint = 'https://api.zootools.co/v1/audience/contacts';
 
-console.log(response.data); // prints out the new member
+const newContact = {
+    firstName: 'Jorge',
+    lastName: 'Ferreiro',
+    email: 'jorge@zootools.co',
+};
 
-````
+const headers = {
+    Authorization: Bearer ${apiToken},
+};
+
+axios
+    .post(endpoint, newContact, { headers })
+    .then((response) => {
+        console.log(response.data); // prints out the new member
+    })
+    .catch((error) => {
+        console.error(error); // there was an error...
+    });
+
+```
 
 ```curl cURL
 Coming soon
-````
+```
 
 </CodeGroup>
 
