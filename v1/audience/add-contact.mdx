@@ -16,18 +16,16 @@ import axios from 'axios';
 const apiToken = 'your_api_token';
 const endpoint = 'https://api.zootools.co/v1/audience/contacts';
 
-const newContact = {
-    firstName: 'Jorge',
-    lastName: 'Ferreiro',
-    email: 'jorge@zootools.co',
-};
-
-const headers = {
-    Authorization: Bearer ${apiToken},
-};
-
 axios
-    .post(endpoint, newContact, { headers })
+    .post(endpoint, {
+        firstName: 'Jorge',
+        lastName: 'Ferreiro',
+        email: 'jorge@zootools.co',
+    }, {
+        headers: {
+            Authorization: Bearer ${apiToken},
+        }
+    })
     .then((response) => {
         console.log(response.data); // prints out the new member
     })
@@ -35,6 +33,18 @@ axios
         console.error(error); // there was an error...
     });
 
+// We should have something like this thought :)
+import zootools from 'zootools'
+
+zootools.setApiToken("YOUR_API_KEY_FROM_THE_DASHBOARD")
+
+const contact = await zootools.contacts.addOrUpdate({
+    firstName: 'Jorge',
+    lastName: 'Ferreiro',
+    email: 'jorge@zootools.co',
+})
+
+console.log('contact', contact)
 ```
 
 ```curl cURL
