@@ -11,10 +11,29 @@ It fails if the member was already added (email or cryptoAddress) — check the 
 <CodeGroup>
 
 ```javascript JavaScript
+
+// We should have something like this thought :)
+import zootools from 'zootools'
+
+zootools.setApiToken("YOUR_ZOOTOOLS_API_KEY_FROM_THE_DASHBOARD")
+
+const { contact, error } = await zootools.contacts.addOrUpdate({
+    firstName: 'Jorge',
+    lastName: 'Ferreiro',
+    email: 'jorge@zootools.co',
+})
+
+if (!error) {
+    console.log('contact', contact)
+} else {
+    console.log('error', error)
+}
+
+
 import axios from 'axios';
 
-const apiToken = 'your_api_token';
 const endpoint = 'https://api.zootools.co/v1/audience/contacts';
+const YOUR_ZOOTOOLS_API_TOKEN = 'your_api_token';
 
 axios
     .post(endpoint, {
@@ -23,7 +42,7 @@ axios
         email: 'jorge@zootools.co',
     }, {
         headers: {
-            Authorization: Bearer ${apiToken},
+            Authorization: Bearer ${YOUR_ZOOTOOLS_API_TOKEN},
         }
     })
     .then((response) => {
@@ -33,22 +52,18 @@ axios
         console.error(error); // there was an error...
     });
 
-// We should have something like this thought :)
-import zootools from 'zootools'
-
-zootools.setApiToken("YOUR_API_KEY_FROM_THE_DASHBOARD")
-
-const contact = await zootools.contacts.addOrUpdate({
-    firstName: 'Jorge',
-    lastName: 'Ferreiro',
-    email: 'jorge@zootools.co',
-})
-
-console.log('contact', contact)
 ```
 
 ```curl cURL
-Coming soon
+
+curl -X POST \
+  -H "Authorization: Bearer YOUR_ZOOTOOLS_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "firstName": "Jorge",
+    "lastName": "Ferreiro",
+    "email": "jorge@zootools.co"
+}' "https://api.zootools.co/v1/audience/contacts"
 ```
 
 </CodeGroup>

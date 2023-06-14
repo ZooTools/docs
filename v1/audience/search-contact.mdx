@@ -6,6 +6,31 @@ icon: "magnifying-glass"
 
 ### [POST] Search contact
 
+<CodeGroup>
+
+```javascript JavaScript
+import zootools from "zootools";
+
+zootools.setApiToken("YOUR_API_KEY_FROM_THE_DASHBOARD");
+
+const contact = await zootools.contacts.search({
+  email: "jorge@zootools.co",
+});
+
+if (contact) {
+  // contact exists! let's print out
+  console.log(contact);
+} else {
+  // contact does not exist...
+}
+```
+
+```curl cURL
+Coming soon
+```
+
+</CodeGroup>
+
 ```jsx
 Use this endpoint to get a user object if you know their email,
 wallet address or both.

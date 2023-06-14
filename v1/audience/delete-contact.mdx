@@ -4,4 +4,61 @@ description: "Add a new contact to your project or update if it currently exists
 icon: "user-minus"
 ---
 
-### [POST] Delete a contact in your audience
+## Delete a contact by email
+
+<CodeGroup>
+
+```javascript JavaScript
+import zootools from "zootools";
+
+zootools.setApiToken("YOUR_ZOOTOOLS_API_KEY_FROM_THE_DASHBOARD");
+
+const response = await zootools.contacts.delete({
+  email: "jorge@zootools.co",
+});
+
+if (response.wasDeleted) {
+  console.log("Contact was deleted!");
+} else {
+  // Errors, etc..
+  console.log(response.reason);
+}
+```
+
+```curl cURL
+Coming soon
+```
+
+</CodeGroup>
+
+## Delete a contact by id
+
+If you store in your database the contactId from ZooTools, then you can pass it down to delete it.
+
+If you don't store the contactId, use the previous example where you pass the email instead.
+
+<CodeGroup>
+
+```javascript JavaScript
+import zootools from "zootools";
+
+zootools.setApiToken("YOUR_ZOOTOOLS_API_KEY_FROM_THE_DASHBOARD");
+
+const response = await zootools.contacts.delete({
+  // useful in case you store the contactId from zootools in your database
+  id: "12312312",
+});
+
+if (response.wasDeleted) {
+  console.log("Contact was deleted!");
+} else {
+  // Errors, etc..
+  console.log(response.reason);
+}
+```
+
+```curl cURL
+Coming soon
+```
+
+</CodeGroup>
