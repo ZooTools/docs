@@ -58,9 +58,9 @@
     {
       "group": "Get Started",
       "pages": [
-        "get-started/introduction",
-        "get-started/quickstart",
-        "get-started/development"
+        "v1/welcome/introduction",
+        "v1/welcome/authentication",
+        "v1/welcome/code-templates"
       ]
     },
     {
