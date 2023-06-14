@@ -11,8 +11,6 @@ It fails if the member was already added (email or cryptoAddress) — check the 
 <CodeGroup>
 
 ```javascript JavaScript
-
-// We should have something like this thought :)
 import zootools from 'zootools'
 
 zootools.setApiToken("YOUR_ZOOTOOLS_API_KEY_FROM_THE_DASHBOARD")
@@ -25,6 +23,9 @@ const { contact, error } = await zootools.contacts.addOrUpdate({
 
 if (!error) {
     console.log('contact', contact)
+
+    // (optional) if you need it, you can store in your database the contact id (contact.id) in case
+    // you want to keep a reference of zootools contacts into your system
 } else {
     console.log('error', error)
 }
