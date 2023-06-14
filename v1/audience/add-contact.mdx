@@ -9,23 +9,22 @@ icon: "user-plus"
 It fails if the member was already added (email or cryptoAddress) — check the user before adding.
 
 ```javascript JavaScript
-const endpoint = "https://api.zootools.co/v1/audience/contacts";
-const token = "your_api_token";
+const CONTACTS_API = "https://api.zootools.co/v1/audience/contacts";
+const API_TOKEN = "your_api_token";
 
-const contact = {
-  email: "jorge@zootools.co",
-  firstName: "Jorge",
-};
-
-const response = await fetch(endpoint, {
+const response = await fetch(CONTACTS_API, {
   method: "POST",
-  body: contact,
+  body: {
+    firstName: "Jorge",
+    lastName: "Ferreiro",
+    email: "jorge@zootools.co",
+  },
   headers: {
-    Authorization: `Bearer ${token}`,
+    Authorization: `Bearer ${API_TOKEN}`,
   },
 });
 
-console.log(response); // prints out the new member
+console.log(response.data); // prints out the new member
 ```
 
 ```curl cURL
