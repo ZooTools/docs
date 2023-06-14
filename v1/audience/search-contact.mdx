@@ -1,0 +1,60 @@
+---
+title: "Search contact"
+description: "Search if a user exists in your contacts database"
+icon: "map"
+---
+
+### [POST] Search contact
+
+```jsx
+Use this endpoint to get a user object if you know their email,
+wallet address or both.
+
+We use a POST since email and crypto address are important information
+to protect, so they will be encrypted and not available on any bad person
+sniffing network requests.
+
+ENDPOINT:
+- https://audience-consumer-api.zootools.co/lists/{listId}/members/search
+- e.g: https://audience-consumer-api.zootools.co/lists/9QA1AYDFwW6425Srx31T/members/search
+
+PARAMS
+- listId*: string;
+
+HEADERS:
+{
+	headers: {
+     Authorization: `Bearer API_TOKEN_YOU_GOT_FROM_US`,
+  }
+}
+
+PAYLOAD
+- email: user registered email in the list
+- cryptoAddress: user crypto address
+
+RESPONSE
+- returns a Member object.
+
+ERRORS
+
+// If no parameters are provided
+{
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "lists/invalid_parameters"
+}
+
+// NOT found user (either via email or contractAddress)
+{
+  "statusCode": 404,
+  "error": "Not Found",
+  "message": "lists/user_not_found"
+}
+
+// NOT found list
+{
+  "statusCode": 404,
+  "error": "Not Found",
+  "message": "lists/not_found"
+}
+```

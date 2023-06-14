@@ -1,59 +1,99 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "zootools API documentation | email marketing, referral programs, viral waitlists, transactional emails.",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
+  "isWhiteLabeled": true,
+  "api": {
+    "baseUrl": "https://api.zootools.co",
+    "playground": {
+      "mode": "simple"
+    },
+    "auth": {
+      "method": "bearer"
+    }
+  },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#12A7D3",
+    "primary": "#FFCC66",
     "light": "#81D7F7",
     "dark": "#004E7A"
   },
   "topbarLinks": [
     {
-      "name": "Documentation",
-      "url": "https://mintlify.com/docs"
+      "name": "Support",
+      "url": "support@zootools.co"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://app.zootools.co"
   },
-  "tabs": [
+  "versions": [{ "name": "v1", "url": "/" }],
+  "anchors": [
+    {
+      "name": "Audience API",
+      "icon": "people",
+      "url": "audience"
+    },
+    {
+      "name": "Emails API",
+      "icon": "emails",
+      "url": "emails"
+    },
     {
       "name": "API Reference",
-      "url": "api-reference"
+      "icon": "rectangle-terminal",
+      "url": "https://reference.flatfile.com/docs/api/"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
-    },
-    {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        "get-started/introduction",
+        "get-started/quickstart",
+        "get-started/development"
+      ]
+    },
+    {
+      "group": "Audience API",
+      "pages": [
+        "v1/audience/get-started",
+        "v1/audience/add-contact",
+        "v1/audience/search-contact",
+        "v1/audience/delete-contact",
+        "v1/audience/schemas"
+      ]
+    },
+    {
+      "group": "Emails API",
+      "pages": [
+        {
+          "group": "Email campaigns",
+          "pages": [
+            "v1/emails/get-started",
+            "v1/emails/send-email",
+            "v1/emails/create-template",
+            "v1/emails/test-emails"
+          ]
+        },
+        {
+          "group": "Send transactional emails",
+          "pages": [
+            "v1/transactional-emails/get-started",
+            "v1/transactional-emails/send-email"
+          ]
+        }
       ]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/zootoolshq",
+    "github": "https://github.com/zootools",
+    "linkedin": "https://www.linkedin.com/company/zootools"
   },
   "backgroundImage": "/background.png"
 }

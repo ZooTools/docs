@@ -1,0 +1,52 @@
+---
+title: "🔎 Audience API Schemas"
+description: "The navigation field in mint.json defines the pages that go in the navigation menu"
+icon: "map"
+---
+
+## Audience API Schemas
+
+### Contact
+
+It represents one user in your marketing campaign. If you create a signup form and add custom questions, you will get extra information in this schema.
+
+```json
+{
+  "email": "jorge@zootools.co",
+  "firstName": "Jorge",
+  "lastName": "Ferreiro",
+  "city": "San Francisco",
+  "countryCode": "US",
+  "countryName": "United States",
+  "status": "subscribed",
+  "hasJoinedNewsletter": false,
+  "fields": {
+    // true if you granted access to use your product
+    "hasAccess": false
+  },
+
+  "id": "k9hF0EnkvWFU0fyxLYHb",
+  "createdAt": "2022-08-22T21:29:09.805Z",
+  "updatedAt": "2022-08-22T21:29:09.805Z",
+  "listId": "9QA1AYDFwW6425Srx31T",
+
+  /**
+   * Metadata on the leaderboard
+   * referral -> the member who invited this user to signup for your product.
+   **/
+  "referral": "",
+  "rankingPoints": 0,
+  "rankingPosition": 1,
+  "referralsCount": 0,
+
+  /**
+   * Browser Metadata -- the device they signed up.
+   * useful to know where are your users signing up from.
+   **/
+  "uaDeviceBrand": "Apple",
+  "uaDeviceType": "Desktop",
+  "uaName": "Chrome",
+  "uaType": "Browser",
+  "uaVersion": "109"
+}
+```
