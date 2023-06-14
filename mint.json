@@ -35,12 +35,12 @@
   "anchors": [
     {
       "name": "Audience API",
-      "icon": "people",
+      "icon": "users",
       "url": "audience"
     },
     {
       "name": "Emails API",
-      "icon": "emails",
+      "icon": "envelope",
       "url": "emails/get-started"
     },
     {
@@ -50,7 +50,7 @@
     },
     {
       "name": "Support",
-      "icon": "rectangle-terminal",
+      "icon": "question",
       "url": "mailto:dev+support@zootools.co"
     }
   ],
