@@ -76,22 +76,9 @@
     {
       "group": "Emails API",
       "pages": [
-        {
-          "group": "Email campaigns",
-          "pages": [
-            "v1/emails/get-started",
-            "v1/emails/send-email",
-            "v1/emails/create-template",
-            "v1/emails/test-emails"
-          ]
-        },
-        {
-          "group": "Send transactional emails",
-          "pages": [
-            "v1/transactional-emails/get-started",
-            "v1/transactional-emails/send-email"
-          ]
-        }
+        "v1/transactional-emails/get-started",
+        "v1/emails/create-template",
+        "v1/emails/test-emails"
       ]
     }
   ],
