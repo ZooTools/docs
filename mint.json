@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "zootools API documentation | email marketing, referral programs, viral waitlists, transactional emails.",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/zootools_logo_dark.svg",
+    "light": "/logo/zootools_logo.svg"
   },
   "isWhiteLabeled": true,
   "api": {
