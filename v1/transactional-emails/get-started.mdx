@@ -4,6 +4,32 @@ description: "A transactional email is one that facilitates a commercial transac
 icon: "code"
 ---
 
+## Parameters
+
+<ResponseField name="to" type="string or array" required>
+  Email or list of emails that should receive your transactional email
+</ResponseField>
+
+<ResponseField name="name" type="string" required>
+  Unique identifier of the transactional email. You can update this value on ZooTools dashboard.
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  Path to logo image or object with path to "light" and "dark" mode logo images
+  <Expandable title="Logo">
+    <ResponseField name="light" type="string">
+      Path to the logo in light mode
+    </ResponseField>
+    <ResponseField name="dark" type="string">
+      Path to the logo in dark mode
+    </ResponseField>
+    <ResponseField name="href" type="string" default="/">
+      Where clicking on the logo links you to
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+
 ## Send a transactional email
 
 ```
@@ -112,28 +138,3 @@ else:
 ```
 </CodeGroup>
 
-
-## Parameters
-
-<ResponseField name="to" type="string or array" required>
-  Email or list of emails that should receive your transactional email
-</ResponseField>
-
-<ResponseField name="name" type="string" required>
-  Unique identifier of the transactional email. You can update this value on ZooTools dashboard.
-</ResponseField>
-
-<ResponseField name="data" type="object">
-  Path to logo image or object with path to "light" and "dark" mode logo images
-  <Expandable title="Logo">
-    <ResponseField name="light" type="string">
-      Path to the logo in light mode
-    </ResponseField>
-    <ResponseField name="dark" type="string">
-      Path to the logo in dark mode
-    </ResponseField>
-    <ResponseField name="href" type="string" default="/">
-      Where clicking on the logo links you to
-    </ResponseField>
-  </Expandable>
-</ResponseField>
