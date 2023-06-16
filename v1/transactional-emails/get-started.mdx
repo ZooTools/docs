@@ -4,6 +4,7 @@ description: "A transactional email is one that facilitates a commercial transac
 icon: "code"
 ---
 
+## Send a transactional email
 
 ```
 https://api.zootools.co/v1/transactional
@@ -110,3 +111,33 @@ else:
     print('API request failed:', response.status_code, response.text)
 ```
 </CodeGroup>
+
+
+## Parameters
+
+<ResponseField name="to" type="string or array">
+  Email or list of emails that should receive your transactional email
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  Unique identifier of the transactional email. You can update this value on ZooTools dashboard.
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  Unique identifier of the transactional email. You can update this value on ZooTools dashboard.
+</ResponseField>
+
+<ResponseField name="logo" type="string or object">
+  Path to logo image or object with path to "light" and "dark" mode logo images
+  <Expandable title="Logo">
+    <ResponseField name="light" type="string">
+      Path to the logo in light mode
+    </ResponseField>
+    <ResponseField name="dark" type="string">
+      Path to the logo in dark mode
+    </ResponseField>
+    <ResponseField name="href" type="string" default="/">
+      Where clicking on the logo links you to
+    </ResponseField>
+  </Expandable>
+</ResponseField>
