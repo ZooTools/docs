@@ -22,9 +22,7 @@ Payload:
 {
     "name": "welcome-email",
     "to": "jorge@zootools.co",
-    "data": {
-        // this is data that will be replaced in your html template
-    }
+    "data": {}
 }
 ```
 
@@ -39,7 +37,12 @@ Payload:
 </ResponseField>
 
 <ResponseField name="data" type="object">
-  Path to logo image or object with path to "light" and "dark" mode logo images
+   You can make your email personalized for every user's passing custom data.
+   
+   Each variable in the html template is replaced by the data you provide.
+   
+   ZooTools has default properties that are automatically added to your account, and you can define custom properties.
+
   <Expandable title="Logo">
     <ResponseField name="light" type="string">
       Path to the logo in light mode
