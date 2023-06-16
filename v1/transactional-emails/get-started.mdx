@@ -4,6 +4,24 @@ description: "A transactional email is one that facilitates a commercial transac
 icon: "code"
 ---
 
+## Get started sending a transactional email
+
+ZooTools Transactional Emails API makes it easy to send transactional communications.
+
+1. Create a new transactional email on your zootools dashboard.
+2. Edit the email content.
+3. Call the API passing the transactional name, and the data.
+
+```
+https://api.zootools.co/v1/transactional
+
+{
+    name: 'welcome-email',
+    to: 'jorge@zootools.co',
+    data: {}
+}
+```
+
 ## Parameters
 
 <ResponseField name="to" type="string or array" required>
@@ -30,17 +48,7 @@ icon: "code"
 </ResponseField>
 
 
-## Send a transactional email
-
-```
-https://api.zootools.co/v1/transactional
-
-{
-    name: 'welcome-email',
-    to: 'jorge@zootools.co',
-    data: {}
-}
-```
+## Examples
 
 <CodeGroup>
 
