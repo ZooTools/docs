@@ -4,34 +4,109 @@ description: "A transactional email is one that facilitates a commercial transac
 icon: "code"
 ---
 
-## What is transactional email marketing and how to get started?
-
-### Inline Code
-
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
 
 ```
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
-```
+https://api.zootools.co/v1/transactional
 
-### Code Block
-
-Use [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks) by enclosing code in three backticks and follow the leading ticks with the programming language of your snippet to get syntax highlighting. Optionally, you can also write the name of your code after the programming language.
-
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
+{
+    name: 'welcome-email',
+    to: 'jorge@zootools.co',
+    data: {}
 }
 ```
 
-````md
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
+<CodeGroup>
+
+```javascript JavaScript
+const axios = require('axios');
+
+const token = 'YOUR_BEARER_TOKEN';
+
+axios.post('https://api.zootools.co/v1/transactional', {
+  name: 'password-reset',
+  to: 'jorge@zootools.co',
+  data: {
+    firstName: "Jorge",
+    lastName: "Ferreiro",
+    passwordResetUrl: 'https://example.com/reset-password?token=123123123',
+  },
+}, {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+})
+  .then(response => console.log('API response:', response.data))
+  .catch(error => console.error('API request failed:', error));
+```
+
+```curl cURL
+curl -X POST \
+  -H 'Authorization: Bearer YOUR_BEARER_TOKEN' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "password-reset",
+    "to": ["jorge@zootools.co"],
+    "data": {
+      "passwordResetUrl": "example.com/reset-password?token=123123123"
+    }
+  }' \
+  https://api.zootools.co/v1/transactional
+```
+
+```ruby Ruby
+require 'net/http'
+require 'json'
+
+endpoint = URI('https://api.zootools.co/v1/transactional')
+token = 'YOUR_BEARER_TOKEN'
+
+payload = {
+  name: 'password-reset',
+  to: ['jorge@zootools.co'],
+  data: {
+    passwordResetUrl: 'example.com/reset-password?token=123123123'
+  }
+}
+
+http = Net::HTTP.new(endpoint.host, endpoint.port)
+http.use_ssl = true
+
+request = Net::HTTP::Post.new(endpoint.path, { 'Authorization' => "Bearer #{token}", 'Content-Type' => 'application/json' })
+request.body = payload.to_json
+
+response = http.request(request)
+
+if response.code.to_i == 200
+  puts 'API response:', response.body
+else
+  puts 'API request failed:', response.code, response.body
+end
+```
+
+```python python
+import requests
+
+endpoint = 'https://api.zootools.co/v1/transactional'
+token = 'YOUR_BEARER_TOKEN'
+
+payload = {
+    'name': 'password-reset',
+    'to': ['jorge@zootools.co'],
+    'data': {
+        'passwordResetUrl': 'example.com/reset-password?token=123123123'
     }
 }
+
+headers = {
+    'Authorization': f'Bearer {token}',
+    'Content-Type': 'application/json'
+}
+
+response = requests.post(endpoint, json=payload, headers=headers)
+
+if response.status_code == 200:
+    print('API response:', response.json())
+else:
+    print('API request failed:', response.status_code, response.text)
 ```
-````
+</CodeGroup>
