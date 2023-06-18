@@ -98,60 +98,61 @@ curl -X POST \
 ```
 
 ```ruby Ruby
-require 'net/http'
+require 'httparty'
 require 'json'
 
-endpoint = URI('https://api.zootools.co/v1/transactional')
-token = 'YOUR_BEARER_TOKEN'
+apiToken = "paste-your-zootools-api-token-here"
+endpoint = "https://api.zootools.co/v1/transactional"
+
+headers = {
+  "Authorization" => "Bearer #{apiToken}",
+  "Content-Type" => "application/json"
+}
 
 payload = {
-  name: 'password-reset',
-  to: ['jorge@zootools.co'],
-  data: {
-    passwordResetUrl: 'example.com/reset-password?token=123123123'
+  "name" => "${message.name}",
+  "to" => "test@zootools.co",
+  "data" => {
+    "resetPasswordUrl" => "https://example.com/reset-password?token=123123123"
   }
 }
 
-http = Net::HTTP.new(endpoint.host, endpoint.port)
-http.use_ssl = true
-
-request = Net::HTTP::Post.new(endpoint.path, { 'Authorization' => "Bearer #{token}", 'Content-Type' => 'application/json' })
-request.body = payload.to_json
-
-response = http.request(request)
+response = HTTParty.post(endpoint, headers: headers, body: payload.to_json)
 
 if response.code.to_i == 200
-  puts 'API response:', response.body
+  puts "API response: #{response.body}"
 else
-  puts 'API request failed:', response.code, response.body
+  puts "API request failed: #{response.code} - #{response.message}"
 end
 ```
 
 ```python python
 import requests
 
-endpoint = 'https://api.zootools.co/v1/transactional'
-token = 'YOUR_BEARER_TOKEN'
+api_token = "paste-your-zootools-api-token-here"
+url = "https://api.zootools.co/v1/transactional"
 
-payload = {
-    'name': 'password-reset',
-    'to': ['jorge@zootools.co'],
-    'data': {
-        'passwordResetUrl': 'example.com/reset-password?token=123123123'
+headers = {
+    "Authorization": "Bearer " + API_TOKEN,
+    "Content-Type": "application/json"
+}
+
+data = {
+    "name": "${message.name}",
+    "to": "test@zootools.co",
+    "data": {
+        "resetPasswordUrl": "https://example.com/reset-password?token=123123123"
     }
 }
 
-headers = {
-    'Authorization': f'Bearer {token}',
-    'Content-Type': 'application/json'
-}
+try:
+    response = requests.post(url, headers=headers, json=data)
+    response.raise_for_status()  # Raise an exception if the request was not successful
 
-response = requests.post(endpoint, json=payload, headers=headers)
-
-if response.status_code == 200:
-    print('API response:', response.json())
-else:
-    print('API request failed:', response.status_code, response.text)
+    response_data = response.json()
+    print("API response:", response_data)
+except requests.exceptions.RequestException as error:
+    print("API request failed:", error)
 ```
 </CodeGroup>
 
