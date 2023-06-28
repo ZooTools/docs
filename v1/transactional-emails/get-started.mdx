@@ -11,16 +11,18 @@ icon: "bell-on"
 ZooTools Transactional Emails API makes it easy to send transactional communications.
 
 Endpoint:
+
 ```
 https://api.zootools.co/v1/messages
 ```
 
 Payload:
+
 ```json
 {
-    "name": "welcome-email",
-    "to": "jorge@zootools.co",
-    "data": {}
+  "name": "welcome-email",
+  "to": "jorge@zootools.co",
+  "data": {}
 }
 ```
 
@@ -29,6 +31,16 @@ Payload:
 3. Copy the name and the data payload.
 4. Call the API passing the transactional name, and the data.
 
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/_A1kGGBhwwg"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
+
 ## Parameters
 
 <ResponseField name="to" type="string or array" required>
@@ -36,7 +48,8 @@ Payload:
 </ResponseField>
 
 <ResponseField name="name" type="string" required>
-  Unique identifier of the transactional email. You can update this value on ZooTools dashboard.
+  Unique identifier of the transactional email. You can update this value on
+  ZooTools dashboard.
 </ResponseField>
 
 <ResponseField name="data" type="object">
@@ -44,44 +57,39 @@ Payload:
    
    ZooTools has default properties that are automatically added to your account, and you can define custom properties.
 
-  <Expandable title="Logo">
-    <ResponseField name="light" type="string">
-      Path to the logo in light mode
-    </ResponseField>
-    <ResponseField name="dark" type="string">
-      Path to the logo in dark mode
-    </ResponseField>
-    <ResponseField name="href" type="string" default="/">
-      Where clicking on the logo links you to
-    </ResponseField>
-  </Expandable>
-</ResponseField>
+You can create as many variables as you want while creating or editing the template.
 
+</ResponseField>
 
 ## Examples
 
 <CodeGroup>
 
 ```javascript JavaScript
-const axios = require('axios');
+const axios = require("axios");
 
-const token = 'YOUR_BEARER_TOKEN';
+const token = "YOUR_BEARER_TOKEN";
 
-axios.post('https://api.zootools.co/v1/messages', {
-  name: 'password-reset',
-  to: 'jorge@zootools.co',
-  data: {
-    firstName: "Jorge",
-    lastName: "Ferreiro",
-    passwordResetUrl: 'https://example.com/reset-password?token=123123123',
-  },
-}, {
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-})
-  .then(response => console.log('API response:', response.data))
-  .catch(error => console.error('API request failed:', error));
+axios
+  .post(
+    "https://api.zootools.co/v1/messages",
+    {
+      name: "password-reset",
+      to: "jorge@zootools.co",
+      data: {
+        firstName: "Jorge",
+        lastName: "Ferreiro",
+        passwordResetUrl: "https://example.com/reset-password?token=123123123",
+      },
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  )
+  .then((response) => console.log("API response:", response.data))
+  .catch((error) => console.error("API request failed:", error));
 ```
 
 ```curl cURL
@@ -155,5 +163,5 @@ try:
 except requests.exceptions.RequestException as error:
     print("API request failed:", error)
 ```
-</CodeGroup>
 
+</CodeGroup>
