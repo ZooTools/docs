@@ -1,0 +1,57 @@
+---
+title: "Get started"
+description: "Search if a user exists in your contacts database"
+icon: "hand"
+---
+
+## What can you do with the Audience API?
+
+ZooTools Audience API contains all the actions to manage your contacts in your project, from adding a new contact, updating properties, deleting and more.
+
+On top, ZooTools offers you security features like one time passwords, and email validation.
+
+## 👋 How to use?
+
+Once you obtain the API token from the ZooTools team, you just simply need to pass the bearer token in the request header to authenticate your requests.
+
+This is an example using axios in JavaScript, but it would be similar for Flutter, iOS, etc.
+
+```jsx
+import axios from 'axios';
+
+const API_TOKEN = 'REPLACE_WITH_YOUR_API_TOKEN' // ask ZooTools team for a key
+const ZOOTOOLS_API_V1_ENDPOINT = 'https://audience-consumer-api.zootools.co/v1'
+
+const listId = '12345' // get it from your dashboard
+const memberId = '23423423' // you will obtain this after creating a member.
+
+// Example: Search if a user exists in my list.
+axios
+    .post(`${ZOOTOOLS_API_V1_ENDPOINT}/lists/${listId}/members/search`, {
+			email: "jorge@zootools.co"
+		}), {
+      headers: {
+        Authorization: `Bearer ${API_TOKEN}`,
+      },
+    })
+```
+
+## What can you do with this API?
+
+<CardGroup cols={2}>
+  <Card
+    title="Add or update a contact"
+    icon="user-plus"
+    href="/v1/audience/add-contact"
+  />
+  <Card
+    title="Search a contact"
+    icon="user-plus"
+    href="/v1/audience/search-contact"
+  />
+  <Card
+    title="Delete a contact"
+    icon="user-plus"
+    href="/v1/audience/delete-contact"
+  />
+</CardGroup>

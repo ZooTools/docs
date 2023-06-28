@@ -57,11 +57,7 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": [
-        "v1/welcome/introduction",
-        "v1/welcome/authentication",
-        "v1/welcome/code-templates"
-      ]
+      "pages": ["v1/welcome/introduction", "v1/welcome/authentication"]
     },
     {
       "group": "Audience API",
