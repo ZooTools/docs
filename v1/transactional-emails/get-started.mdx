@@ -15,7 +15,7 @@ icon: "bell-on"
   ></iframe>
 </div>
 
-## Get started
+## Overview
 
 ZooTools Transactional Emails API makes it easy to send transactional communications.
 
@@ -27,16 +27,27 @@ https://api.zootools.co/v1/messages
 
 Payload:
 
-```json
+```js
 {
-  "name": "welcome-email",
-  "to": "jorge@zootools.co",
-  "data": {}
+  "name": "welcome-email", // this is the ID of your transactional message you created in the dashboard
+  "to": "jorge@zootools.co", // target email
+  "data": {
+    // any variables to be used in the email template
+  }
 }
 ```
 
+## Get started
+
 1. Create a new transactional email on your [zootools dashboard](https://app.zootools.co).
-2. Edit the email content.
+
+![Alt Text](https://github.com/ZooTools/docs/blob/main/images/messages/create-transactional.png?raw=true)
+
+2. View your transactional message and instructions based on your programming language
+
+![Alt Text](https://github.com/ZooTools/docs/blob/main/images/messages/view-transactional.png?raw=true)
+
+2. Edit the email content and ass as many variables as you need.
 3. Copy the name and the data payload.
 4. Call the API passing the transactional name, and the data.
 
