@@ -72,9 +72,10 @@
     {
       "group": "Emails API",
       "pages": [
-        "v1/transactional-emails/get-started",
-        "v1/emails/create-template",
-        "v1/emails/test-emails"
+        "v1/emails-api/get-started",
+        "v1/emails-api/integrate",
+        "v1/emails-api/create-template",
+        "v1/emails-api/test-emails"
       ]
     }
   ],
